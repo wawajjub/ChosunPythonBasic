@@ -56,9 +56,15 @@ print(intro.rfind("hi"))    # 없는경우 -1 출력
 #  - 조건 아이디의 길이는 상시 달라집니다.
 # 아이디: "cherry123", "cherry10", "cherry0"
 id = "cherry1004@gmail.com"
+email = id.find("@")
+print(id[:email])
 
 # 문제2. 도메인 추출
 #  ex) WWW.naver.com
 #      WWW.google.com
 #      WWW.daum.com
 # naver, google, daum을 추출하는 코드
+domain = "WWW.naver.com"
+f_domain = domain.find(".") + 1
+b_domain = domain.rfind(".")
+print(domain[f_domain:b_domain])
