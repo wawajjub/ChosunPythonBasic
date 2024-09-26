@@ -142,8 +142,7 @@ a = 10
 b = 20
 
 # 코드 작성
-tmp = a
-a = b
-b = tmp
+a,b = b,a #tuple
 print(a) # 20
 print(b) # 10
+
