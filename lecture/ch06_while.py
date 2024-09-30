@@ -15,4 +15,7 @@
 # 숙제: for문으로 작성한 2단 코드를 while문으로 변경
 # for i in range(1,10):
 # print(f"2x{i}={2*i}") 
-
+i = 1
+while (i < 10):
+     print(f"2x{i}={i*2}")
+     i+=1
