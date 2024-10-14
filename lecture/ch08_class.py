@@ -48,6 +48,7 @@ class Parent:
         print("*")
 # parent = Parent()
 # parent.print_star()
+
 class Child(Parent):
     pass
 ch = Child()

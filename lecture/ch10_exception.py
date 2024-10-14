@@ -37,11 +37,15 @@
 #        ㄴ 동시에 접속해서 사용할 수 있는 인원 제한! ex) 수강신청
 
 from urllib.request import urlopen, HTTPError
+# 예외가 발생할 수 있는 상황 무궁무진하게 많음
+# except HTTPError -> 예외중 HTTP 관련된 예외만 처리
+# except HTTPError, ...
+# except: 모든 예외상황을 처리하세요!
 
 try: 
-    html = urlopen("http://www.naver.commmmmm")
-except HTTPError as e:
-    print(e)
+    html = urlopen("http://www.naver.com")
+except:
+    print("올바른 URL을 입력해주세요.")
 else:
     print("No Error")
 finally:

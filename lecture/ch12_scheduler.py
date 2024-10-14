@@ -28,7 +28,7 @@ def print_hello():
 # 3. 스케줄러에 Job 등록
 #   - CRON 표기법: 날짜 또는 특정시간 표기법(구글 검색)
 sched.add_job(print_hello, "cron", hour = "12", minute ="35", id="chosun")
-
+import time
 # 4. 스케줄러 실행
 sched.start()   
 
