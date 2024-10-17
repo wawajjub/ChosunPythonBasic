@@ -81,16 +81,30 @@ while True:
         order_list.append([desert_menu[sub_order], desert_price[sub_order]])
     
     # 추가 주문 or 결제
-    extra_order = input("추가 주문하시겠습니까?(y/n)")
-    if extra_order == 'y':
-        pass
-    elif extra_order == 'n':
+    while True:
+        yn = input("추가 주문하시겠습니까?(y/n)").lower()
+        if yn == 'y':
+            break
+        elif yn == 'n':
+            break
+        else:
+            print(">> WARNING: 올바른 값을 입력해주세요.")
+    if yn == 'y':
+        continue
+    elif yn == 'n':
+        # 사용자가 주문한 메뉴 출력
+        print(f"== 주문 메뉴 ==")
+        total = 0
+        # order_list = [[이름, 가격], [이름, 가격], [이름, 가격], ...]
+        for i, item in enumerate(order_list):
+            print(f"{i+1}. {item[0]}({item[1]}원)")
+            total += item[1]
+        print(f"고객님이 주문하신 메뉴는 총 {len(order_list)}건으로 ")
+        print(f"결제금액은 {total}원 입니다. ")
+        print(f"이용해주셔서 감사합니다.")
         break
+    
 
-print("결제 목록")
-    # 사용자가 주문한 메뉴 출력
-for item in order_list:
-        print(item)
         
         
     
