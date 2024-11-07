@@ -39,5 +39,35 @@
 - NoSQL: 자유형태 대용량 수집데이터
     -> MongoDB
     
+### 2-2. SQL(구조질의어)
+- DBMS에 명렬을 내릴 때 사용
+- 예) SELECE * FROM tbl_user;
+
+### 2-3. DBMS 설치 방법
+1. 로컬 설치
+2. 클라우드 사용(AWS, GCP, Azure, 기타등등)
+3. 도커 컨테이너
+
+### 3. 도커 (컨테이너)
+- 도커: 컨테이너 가상화 기술을 구현해주는 프로그램
+- 도커 → 도커엔진 + 도커 이미지
+- 도커 이미지: 도커 컨테이너 실행을 위한 설계도면
+- 도커엔진: 도커 이미지를 바탕으로 컨테이너를 실행 
+
+### 3-1. 도커 명령어
+- docker ps: 현재 실행중인 컨테이너 확인
+- docker images: 현재 보유하고있는 컨테이너 이미지 확인
+- docker run: 도커 컨테이너 실행
+- docker logs [컨테이너 이름]: 해당 컨테이너 로그 확인
+- docker exec -it [컨테이너 이름]: 해당 컨테이너 접속
+```
+>> docker run --name mariadb -d -p 3306:3306 -e MARIADB_ROOT_PASSWORD=mariadb mariadb
+ --name mariadb: 컨테이너 이름
+ -d: 데몬(백그라운드 실행)
+ -p 3306:3306: 포트(외부: 내부) → 외부포트(호스트), 내부포트(컨테이너)
+ MARIADB_ROOT_PASSWORD=mariadb: 환경설정(ROOT암호=mariadb) 
+ mariadb: mariadb 컨테이너 실행
+```
+
 ### 99. 전체 시스템 구조(학습용) - WEB/APP
-Client - Server 
+# - Client - Server 
