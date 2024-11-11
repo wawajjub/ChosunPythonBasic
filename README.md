@@ -48,6 +48,30 @@
 2. 클라우드 사용(AWS, GCP, Azure, 기타등등)
 3. 도커 컨테이너
 
+### 2-4 데이터베이스 구조질의어
+1. DBMS -> MariaDB, Oracle, MySQL, PostgreSQL
+2. ㄴ Detabase -> chosun
+3.      ㄴ Table -> tbl_news (SQL)
+- 프로젝트별로 Detabase 생성
+- Detabase(쇼핑몰)
+-   ㄴ Table(회원)
+-   ㄴ Table(상품)
+-   ㄴ Table(구매)
+-   ㄴ Table(고객문의)
+
+### 2-5. 프로그래밍언어 - DB 연결
+1. SQL Mapping: sql을 작설 -> 실행 (과거)
+2. ORM(Object Relation Mapping)   (최신)
+- SQL 복잡도 증가! -> ORM 한계
+
+### 2-6. SQL Mapping
+1. connection 맺기(python - database)
+    - IP, PORT, ID, PW
+2. 일꾼 만들기(curser 객체)
+3. JOB 만들기 (SQL작성)
+4. 실행 (일꾼-JOB)
+5. 결과
+
 ### 3. 도커 (컨테이너)
 - 도커: 컨테이너 가상화 기술을 구현해주는 프로그램
 - 도커 → 도커엔진 + 도커 이미지
