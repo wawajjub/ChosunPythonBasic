@@ -15,6 +15,13 @@ import time
 options = Options()
 # - selenium 동작 후 웹 브라우저 종료 옵션(Default) -> 끄기
 options.add_experimental_option("detach", True) # 베포시 제거할 것
+# options.add_argument("headless") # 백그라운드 동작
+
+options.add_argument("disable-blink-features=AutomationControlled")
+options.add_experimental_option("excludeSwitches", ["enable-automation"])
+options.add_experimental_option("useAutomationExtension", False)
+# 사람인척
+
 # 2. selenium이 제어하는 크롬 웹 브라우저 설치
 # 오류1: 사용하고있는 크롬 웹브라우저의 버전을 최신 업데이트
 # 오류2: 웹브라우저 불러오기 경로 문제!(경로 문제 해결)
