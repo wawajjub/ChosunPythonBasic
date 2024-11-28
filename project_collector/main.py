@@ -15,6 +15,10 @@ import re # 정규식
 
 # streamlit run project_collector/main.py
 
+def convert_df(df):
+    return df.to_csv(index=False, encoding="utf8")
+
+
 def main():
     st.set_page_config(
         page_title="뉴스 수집기", # 웹사이트의 제목
@@ -23,13 +27,25 @@ def main():
     st.title("NEWS: :blue[Collector]")
     st.text("DAUM 뉴스를 수집합니다.")
         
-    with st.form(key="form"):
         # 1. 정규식 → 문자만 추출(수사, 특수문자 제거)
         # 2. 수집 데이터를 엑셀로 다운로드
         # 3. README.md 작성! → 프로젝트 정리(Github)
-        submitted = st.form_submit_button("수집")
-        if submitted:
-                collect_news()
+    flag = False # 수집 성공여부
+    if st.button("수집"):
+        df_news, count = collect_news()
+        st.write(f"뉴스 {count}건 수집 완료")
+        st.write(df_news)
+        flag = True
+        news_csv = convert_df(df_news)
+                
+    if flag:
+        st.download_button(
+            label="다운로드",
+            data=news_csv,
+            file_name=f"실시간뉴스.csv",
+            mime="text/csv",
+            key="download_csv"
+        )        
                 
                 
 if __name__ == "__main__":
