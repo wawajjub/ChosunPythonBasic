@@ -18,7 +18,7 @@ from service import book_service
 
 st.set_page_config(
     page_title="도서관리 시스템",
-    page_icon=""
+    page_icon="project_lms/img/book.png"
 )
 
 # 1-1. streamlit 세션상태어세 현재 페이지를 추적하기 위한 상태값을 저장 
@@ -76,12 +76,24 @@ st.markdown("<hr>", unsafe_allow_html=True)
 
 # 3. BODY
 def main_page(): # 조회, 검색, 삭제
+    # [전체 데이터 조회]
     rows = book_service.get_books()
+    # st.dataframe → streamlit에서 표형태로 출력
+    
+    # [데이터 검색]
+    with st.form("search_from"):
+        key_ward = st.text_input("도서검색")
+        submitted = st.form_submit_button("검색")
+        if submitted:
+            rows = book_service.search_books(key_ward)
+            st.write(f'"{key_ward}"로 검색 된 결과는 총 {len(rows)}건 입니다.')
+
     event = st.dataframe(rows, 
                          on_select="rerun",
                          selection_mode="single-row",
                          use_container_width=True,
                          hide_index=True)
+    
 def insert_page(): # 등록
     pass
 def update_page(): # 수정
