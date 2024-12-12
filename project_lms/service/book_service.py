@@ -134,5 +134,20 @@ def update_book(book: dict):
         if conn and conn.open:
             conn.close()
 
-def delete_book(book_isbn: dict):
-    pass
+def delete_book(book_isbn: str):
+    conn = connection()
+    
+    try:
+        curs = conn.cursor()
+        sql = """
+            DELETE FROM tbl_book
+            WHERE book_ISBN = %(book_isbn)s;
+        """
+        curs.execute(sql, {"book_isbn": book_isbn})
+    except Exception as e:
+        print(e)
+    finally:
+        if curs:
+            curs.close()
+        if conn and conn.open:
+            conn.close()

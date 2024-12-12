@@ -116,7 +116,9 @@ def main_page(): # 조회, 검색, 삭제
         if st.button("수정"):
             navigate_to("update")        
         if st.button("삭제"):
-            pass
+            book_service.delete_book(data["book_isbn"])
+            navigate_to("main")
+            # 값이 변경(INSERT, UPDATE, DELETE) → 최신화
         
 def insert_page(): # 등록
     with st.form("insert_form"):
